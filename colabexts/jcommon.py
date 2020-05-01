@@ -24,6 +24,7 @@ params = {'legend.fontsize': 'small',
          'xtick.labelsize':'x-small',
          'ytick.labelsize':'x-small'}
 matplotlib.pyplot.rcParams.update(params)
+import colabexts
 
 #-----------------------------------------------------------------------------------
 class Map(dict):
@@ -58,6 +59,16 @@ class Map(dict):
     def __delitem__(self, key):
         super(Map, self).__delitem__(key)
         del self.__dict__[key]
+#-----------------------------------------------------------------------------------
+def loadExtensions(abspath=None, debug=False):
+    ip = get_ipython()
+    if(abspath is None):
+        abspath = os.path.dirname(colabexts.__file__)
+    if(debug):
+        print("loading colabexts ... from: "+abspath);
+        
+    ip.run_line_magic(magic_name="run", line=abspath+"/jcommon.ipynb")
+    
 #-----------------------------------------------------------------------------------
 def readFile(file):
     with open(file, "rb") as f:
