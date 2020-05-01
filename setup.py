@@ -1,16 +1,16 @@
 from setuptools import setup
 
-version=0.1
+version=0.10600000000000001
 
-setup(name='labexts',
+setup(name='colabexts',
       version=str(version),
       description='Some simple Utilities',
       url='https://github.com/meyers007/labext.git',
       author='Code Red',
       author_email='meyers@geospaces.org',
-      license='Apache',
-      packages = ['labexts'],
-      package_data={'labexts':['*', 'imgs/*']},
+      license='Apache License 2.0',
+      packages = ['colabexts'],
+      package_data={'colabexts':['*', 'imgs/*']},
       zip_safe=False,
       install_requires=['matplotlib', 'openpyxl'],
       classifiers=[
@@ -25,7 +25,7 @@ setup(name='labexts',
           #'Topic :: Jupyter Prettification :: Utilities ',
       
           # Pick your license as you wish (should match "license" above)
-           'License :: OSI Approved :: Apache License',
+           'License :: OSI Approved :: Apache Software License',
       
           # Specify the Python versions you support here. In particular, ensure
           # that you indicate whether you support Python 2, Python 3 or both.

@@ -1,9 +1,9 @@
 #Packaging
 #=========
 #[ ]
-\rm -rf dist labexts/__pycache__
+\rm -rf dist colabexts/__pycache__
 python upver.py
-VER=`cat labexts/version.txt `
+VER=`cat colabexts/version.txt `
 echo "Installing VERSION: $VER"
 
 python setup.py sdist
@@ -13,7 +13,7 @@ python setup.py bdist_wheel --universal
 # ==============================
 # Create ~/.pypirc with Following Contents
 # [pypi]
-# username = sada
+# username = meyers007
 # password = Password- Asdf
 
 #Uploading
