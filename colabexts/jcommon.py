@@ -60,6 +60,25 @@ class Map(dict):
         super(Map, self).__delitem__(key)
         del self.__dict__[key]
 #-----------------------------------------------------------------------------------
+def pr():
+    p='''
+import os, sys, re, importlib, json, datetime, glob, platform, matplotlib, dateutil, warnings
+import numpy as np
+from IPython.display import HTML, Javascript
+import pandas as pd
+from datetime import timedelta;
+from collections import defaultdict
+import matplotlib.pyplot as plt
+import urllib.request;
+from random import randint
+from collections import defaultdict
+from pylab import rcParams
+rcParams['figure.figsize'] = 13, 5
+warnings.filterwarnings('ignore')
+%matplotlib inline
+'''
+    print(pr)
+
 def loadExtensions(abspath=None, debug=False):
     ip = get_ipython()
     if(abspath is None):
