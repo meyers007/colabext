@@ -77,14 +77,15 @@ rcParams['figure.figsize'] = 13, 5
 warnings.filterwarnings('ignore')
 %matplotlib inline
 '''
-    print(pr)
+    print(p)
 
 def loadExtensions(abspath=None, debug=False):
     ip = get_ipython()
     if(abspath is None):
         abspath = os.path.dirname(colabexts.__file__)
     if(debug):
-        print("loading colabexts ... from: "+abspath);
+        print("#loading colabexts ... from: "+abspath);
+        pr();
         
     ip.run_line_magic(magic_name="run", line=abspath+"/jcommon.ipynb")
     
