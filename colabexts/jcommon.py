@@ -10,20 +10,22 @@ import urllib.request;
 from random import randint
 from collections import defaultdict
 from pylab import rcParams
-rcParams['figure.figsize'] = 13, 5
 import warnings
 warnings.filterwarnings('ignore')
+
+matplotlib.rcParams['figure.figsize'] = (16, 5)
+matplotlib.rcParams['axes.grid'] = True
 
 pd.set_option('display.max_colwidth', 1024)
 pd.set_option('display.max_rows', 6)
 
 params = {'legend.fontsize': 'small',
-          'figure.figsize': (4, 3),
+          'figure.figsize': (16, 5),
           'axes.titlesize':'medium',
          'axes.labelsize': 'x-small',
          'xtick.labelsize':'x-small',
          'ytick.labelsize':'x-small'}
-matplotlib.pyplot.rcParams.update(params)
+#matplotlib.pyplot.rcParams.update(params)
 import colabexts
 
 #-----------------------------------------------------------------------------------
