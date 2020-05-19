@@ -1,4 +1,4 @@
-from Jupytils.jcommon import *
+#from Jupytils.jcommon import *
 
 def LoadJupytils(abspath=None, debug=False):
     ip = get_ipython()
@@ -13,6 +13,7 @@ def LoadJupytils(abspath=None, debug=False):
 
     
 try:
-    LoadJupytils()
+    #LoadJupytils()
+	pass
 except:
     pass
