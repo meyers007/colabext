@@ -1,7 +1,7 @@
 import re
 import os
 
-with open('setup.py', 'r') as f:
+with open( 'setup.py', 'r') as f:
 	txt = f.read()
 
 for vers in txt.split("\n"):

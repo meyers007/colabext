@@ -24,7 +24,7 @@ params = {'legend.fontsize': 'small',
           'axes.titlesize':'medium',
          'axes.labelsize': 'x-small',
          'xtick.labelsize':'x-small',
-         'ytick.labelsize':'x-small'}
+         'ytick.labelsize':'x-small' }
 #matplotlib.pyplot.rcParams.update(params)
 import colabexts
 
