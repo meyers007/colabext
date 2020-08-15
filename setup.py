@@ -1,4 +1,4 @@
-from setuptools import setup 
+from setuptools import setup
 
 version=0.11300000000000002
 
