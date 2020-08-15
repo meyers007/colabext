@@ -1,4 +1,4 @@
-import re 
+import re
 import os
 
 with open( 'setup.py', 'r') as f:
