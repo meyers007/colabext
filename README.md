@@ -1,4 +1,4 @@
-# Colabext : Some Extended convenient utilities 
+# Colabext : Some Extended convenient utilities
 
 ## What is this about?  
 

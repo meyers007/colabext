@@ -2,7 +2,7 @@ from setuptools import setup
 
 version=0.11300000000000002
 
-setup(name='colabexts',
+setup(name='colabexts', 
       version=str(version), 
       description='Some simple Utilities',
       url='https://github.com/meyers007/labext.git',
