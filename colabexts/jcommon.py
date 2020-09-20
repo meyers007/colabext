@@ -1,4 +1,4 @@
-import os, sys, re, importlib, json, datetime, glob, platform, matplotlib, dateutil
+import os, sys, re, importlib, json, datetime, glob, platform, matplotlib, dateutil 
 import numpy as np
 from IPython.display import HTML, Javascript
 import pandas as pd
@@ -24,7 +24,7 @@ params = {'legend.fontsize': 'small',
           'axes.titlesize':'medium',
          'axes.labelsize': 'x-small',
          'xtick.labelsize':'x-small',
-         'ytick.labelsize':'x-small'}
+         'ytick.labelsize':'x-small' }
 #matplotlib.pyplot.rcParams.update(params)
 import colabexts
 
