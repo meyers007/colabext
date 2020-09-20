@@ -106,3 +106,6 @@ def jlog(*args, debug=False, end=' ', **kwargs):
     for k,v in kwargs.items():
         print ("%s = %s" % (k, v))
 #-----------------------------------------------------------------------------------
+def inJupyter():
+    try:    get_ipython; return True
+    except: return False
