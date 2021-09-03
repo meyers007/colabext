@@ -109,3 +109,11 @@ def jlog(*args, debug=False, end=' ', **kwargs):
 def inJupyter():
     try:    get_ipython; return True
     except: return False
+#--------------------------------------------------------------------------------
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
