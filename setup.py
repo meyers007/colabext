@@ -1,11 +1,11 @@
 from setuptools import setup
 
-version=0.11700000000000002
+version=0.11800000000000002
 
 setup(name='colabexts', 
       version=str(version), 
       description='Some simple Utilities',
-      url='https://github.com/meyers007/labext.git',
+      url='https://github.com/meyers007/colabext.git',
       author='Code Red',
       author_email='meyers@geospaces.org',
       license='Apache License 2.0',

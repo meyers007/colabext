@@ -116,4 +116,29 @@ def is_number(s):
         return True
     except ValueError:
         return False
+#--------------------------------------------------------------------------------
+def encrypt(msg_text = b'message', secret_key='password'):
+    if (type(msg_text) == str):
+        msg_text = bytes(msg_text, encoding='utf-8').rjust(32)
+    if (type(secret_key) == str):
+        secret_key = bytes(secret_key, encoding='utf-8') .rjust(32)
 
+    cipher = AES.new(secret_key,AES.MODE_ECB) 
+    encoded = base64.b64encode(cipher.encrypt(msg_text))
+    ret = encoded.decode("utf-8")
+    print(ret)
+    return ret
+
+#--------------------------------------------------------------------------------
+def decrypt(encoded, secret_key='password'):
+    if (type(secret_key) == str):
+        secret_key = bytes(secret_key, encoding='utf-8') .rjust(32)
+
+    cipher = AES.new(secret_key,AES.MODE_ECB) 
+    if (type(encoded) == str):
+        encoded = bytes(encoded, encoding='utf-8')
+    decoded = cipher.decrypt(base64.b64decode(encoded))
+    ret =decoded.decode("utf-8").strip()
+    print(ret)
+    return ret
+    
