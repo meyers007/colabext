@@ -1,6 +1,6 @@
 from setuptools import setup
 
-version=0.11900000000000002
+version=0.12100000000000002
 
 setup(name='colabexts', 
       version=str(version), 

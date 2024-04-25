@@ -92,6 +92,25 @@ def decrypt(encoded, secret_key='password'):
     print(ret)
     return ret
 #--------------------------------------------------------------------------------
-def parse(s="{}", {}):
-    pass
-    
+class mydict(dict):
+    def __init__(self, *args, **kwargs):
+        super(mydict, self).__init__(*args, **kwargs)
+        for arg in args:
+            if isinstance(arg, dict):
+                for k, v in arg.items():
+                    self[k] = v
+        if kwargs:
+            for k, v in kwargs.items():
+                self[k] = v
+
+    def __missing__(self, key):
+        if key in  locals():
+            return locals()[key]
+        return key
+
+    def parsej(self, s):
+        eval(s, **self)
+        
+def parsej(s, *args, **kwargs):
+    return eval(s, mydict(*args, **kwargs))
+
