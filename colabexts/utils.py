@@ -36,25 +36,7 @@ class Map(dict):
     def __delitem__(self, key):
         super(Map, self).__delitem__(key)
         del self.__dict__[key]
-#-----------------------------------------------------------------------------------
-class mydict(dict):
-    def __init__(self, default_type="|key|locals|globals", *args, **kwargs):
-        super(mydict, self).__init__(*args, **kwargs)
-        for arg in args:
-            if isinstance(arg, dict):
-                for k, v in arg.items():
-                    self[k] = v
-        if kwargs:
-            for k, v in kwargs.items():
-                self[k] = v
 
-    def __missing__(self, key):
-        if key in  locals():
-            return locals()[key]
-        return key
-        
-def parsej(s, *args, **kwargs):
-    return eval(s, mydict(*args, **kwargs))
 
 #-----------------------------------------------------------------------------------
 def inJupyter():
@@ -103,14 +85,32 @@ class mydict(dict):
             for k, v in kwargs.items():
                 self[k] = v
 
+    def __getattr__(self, attr):
+        return self.get(attr)
+
+    def __setattr__(self, key, value):
+        self.__setitem__(key, value)
+
+    def __setitem__(self, key, value):
+        super(mydict, self).__setitem__(key, value)
+        self.__dict__.update({key: value})
+
+    def __delattr__(self, item):
+        self.__delitem__(item)
+
+    def __delitem__(self, key):
+        super(mydict, self).__delitem__(key)
+        del self.__dict__[key]
+
     def __missing__(self, key):
-        if key in  locals():
-            return locals()[key]
-        return key
+         if key in  locals():
+             return locals()[key]
+         return key
 
     def parsej(self, s):
         eval(s, **self)
+
         
 def parsej(s, *args, **kwargs):
-    return eval(s.strip() or "{}", mydict(*args, **kwargs))
+    return mydict(eval(s.strip() or "{}", mydict(*args, **kwargs)))
 
