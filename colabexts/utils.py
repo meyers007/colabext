@@ -112,5 +112,5 @@ class mydict(dict):
         eval(s, **self)
         
 def parsej(s, *args, **kwargs):
-    return eval(s, mydict(*args, **kwargs))
+    return eval(s.strip() or "{}", mydict(*args, **kwargs))
 
