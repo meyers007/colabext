@@ -1,9 +1,14 @@
-#-----------------------------------------------------------------------------------
+'''---------------------------------------------------------------------------------
+GENERATED FROM colabexts/utils.ipynb
+
+----------------------------------------------------------------------------------'''
+import os
+
+"""
+Example:
+m = Map({'first_name': 'Eduardo'}, last_name='Pool', age=24, sports=['Soccer'])
+"""
 class Map(dict):
-    """
-    Example:
-    m = Map({'first_name': 'Eduardo'}, last_name='Pool', age=24, sports=['Soccer'])
-    """
     def __init__(self, *args, **kwargs):
         super(Map, self).__init__(*args, **kwargs)
         for arg in args:
@@ -31,7 +36,6 @@ class Map(dict):
     def __delitem__(self, key):
         super(Map, self).__delitem__(key)
         del self.__dict__[key]
-
 
 #-----------------------------------------------------------------------------------
 def inJupyter():
@@ -68,6 +72,35 @@ def decrypt(encoded, secret_key='password'):
     ret =decoded.decode("utf-8").strip()
     print(ret)
     return ret
+#------------------------------------------------------------------------------
+class DefaultDict(dict):
+    def __missing__(self, key):
+        allowed=['datetime']
+        #print("+++++++++++++", key)
+
+        ret = ''
+        try:
+            if ( key.split(".")[0] in allowed):
+                ret = eval(key)
+            else:
+                ret= "{?:" + key + "}"
+        except Exception as e:
+            #print(e);
+            ret= "{?:" + key + "}"
+            pass
+        return ret
+
+# This will evaluate your string and ignoring missing values as if
+def getEvaluatedString(msg, **kwargs):
+    ms1 = f"f'''{msg}'''"
+    #print(ms1)
+    args =  DefaultDict(**kwargs)
+    try:
+        msg = eval(ms1, args)
+    except Exception as e:
+        msg= f"{msg}: {e}"
+
+    return msg
 #--------------------------------------------------------------------------------
 class mydict(dict):
     def __init__(self, *args, **kwargs):
@@ -98,9 +131,10 @@ class mydict(dict):
         del self.__dict__[key]
 
     def __missing__(self, key):
-         if key in  locals():
+        #print(f"MISSIY {key}")
+        if key in  locals():
              return locals()[key]
-         return key
+        return key
 
     def parsej(self, s):
         eval(s, **self)
